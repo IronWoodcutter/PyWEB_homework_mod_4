@@ -9,10 +9,10 @@ from threading import Thread
 from datetime import datetime
 
 BASE_DIR = pathlib.Path()
-
 BUFFER = 1024
 SOCKET_HOST = '127.0.0.1'
 SOCKET_PORT = 5000
+HTTP_HOST = '0.0.0.0'
 HTTP_PORT = 3000
 
 
@@ -97,7 +97,7 @@ def run_socket_server(host, port):
 
 
 def run_http_server():
-    address = ('0.0.0.0', HTTP_PORT)
+    address = (HTTP_HOST, HTTP_PORT)
     httpd = HTTPServer(address, TheBestFastApp)
     logging.info('Http server started')
     try:
